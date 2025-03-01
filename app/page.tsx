@@ -1,16 +1,23 @@
-"use client"
-import GlobalButton from "@/components/global/globalButton";
+"use client";
+
 import GlobalInput from "@/components/global/globalInput";
-import { HeroUIProvider } from "@heroui/react";
+import GlobalToast from "@/components/global/globalToast";
 
 const HomePage = () => {
   return (
     <>
-      <HeroUIProvider>
-        <div className="text-6xl text-cyan-600">HomePage</div>
-        <GlobalButton />
-        <GlobalInput />
-      </HeroUIProvider>
+      <div className="text-6xl text-cyan-600">HomePage</div>
+      <GlobalInput
+        label="Label del Input"
+        isInvalid={true}
+        errorMessage="Mensaje de Error"
+      />
+      <GlobalToast
+        text="Texto del Boton"
+        toastTitle="Texto del title del Toast"
+        toastDescription="Descripción del Toast"
+        toastColor="secondary"
+      />
     </>
   );
 };
