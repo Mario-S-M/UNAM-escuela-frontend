@@ -1,15 +1,24 @@
-import { Button } from '@heroui/react'
-import React from 'react'
+import { Button } from "@heroui/react";
+import React from "react";
 
 const GlobalButton = () => {
   return (
-   <>
-    <Button 
-    color="primary"
-    variant='ghost'
-    >Button</Button>
-   </>
-  )
-}
+    <>
+      <Button
+        isDisabled={false}
+        size="lg"
+        radius="lg"
+        color="primary"
+        variant={`ghost`}
+        isLoading={false}
+        endContent={``}
+        startContent={``}
+        isIconOnly={false}
+      >
+        Hola
+      </Button>
+    </>
+  );
+};
 
-export default GlobalButton
+export default GlobalButton;
