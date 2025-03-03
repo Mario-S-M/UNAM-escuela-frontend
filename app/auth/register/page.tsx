@@ -11,7 +11,9 @@ const RegisterPage = () => {
       <div className="hidden md:flex md:w-1/2 bg-primary-500 items-center justify-center">
         <div className="text-white text-center">
           <h2 className="text-3xl font-bold">Bienvenido</h2>
-          <p className="mt-2">Crea una cuenta para acceder a todas las funcionalidades.</p>
+          <p className="mt-2">
+            Crea una cuenta para acceder a todas las funcionalidades.
+          </p>
         </div>
       </div>
 
@@ -31,11 +33,19 @@ const RegisterPage = () => {
             </div>
 
             <div className="mb-4">
-              <GlobalInput type="text" placeholder="Apellido" isRequired={true} />
+              <GlobalInput
+                type="text"
+                placeholder="Apellido"
+                isRequired={true}
+              />
             </div>
 
             <div className="mb-4">
-              <GlobalInput type="email" placeholder="Correo" isRequired={true} />
+              <GlobalInput
+                type="email"
+                placeholder="Correo"
+                isRequired={true}
+              />
             </div>
 
             <div className="mb-4">
@@ -54,12 +64,14 @@ const RegisterPage = () => {
               />
             </div>
 
-            <GlobalToast
-              text="Crear Cuenta"
-              toastTitle="Cuenta Creada Exitosamente"
-              toastDescription="Tu cuenta ha sido creada exitosamente."
-              toastColor="success"
-            />
+            <div className="flex justify-center">
+              <GlobalToast
+                text="Crear Cuenta"
+                toastTitle="Cuenta Creada Exitosamente"
+                toastDescription="Tu cuenta ha sido creada exitosamente."
+                toastColor="success"
+              />
+            </div>
           </form>
 
           <div className="mt-6 text-center text-sm">

@@ -43,12 +43,14 @@ const LoginPage = () => {
               />
             </div>
 
-            <GlobalToast
-              text="Iniciar Sesión"
-              toastTitle="Inicio de Sesión Exitoso"
-              toastDescription="Bienvenido a tu cuenta de usuario."
-              toastColor="success"
-            />
+            <div className="flex justify-center">
+              <GlobalToast
+                text="Iniciar Sesión"
+                toastTitle="Inicio de Sesión Exitoso"
+                toastDescription="Bienvenido a tu cuenta de usuario."
+                toastColor="success"
+              />
+            </div>
           </form>
 
           <div className="mt-6 text-center text-sm grid space-y-4">
