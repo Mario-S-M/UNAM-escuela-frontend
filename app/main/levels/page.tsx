@@ -1,11 +1,12 @@
 
+import LevelList from "@/app/components/global/levels/level-list"
 
-const LevelsPages = () => {
+function LevelsPage() {
   return (
     <>
-        
+      <LevelList/>
     </>
   )
 }
 
-export default LevelsPages
+export default LevelsPage

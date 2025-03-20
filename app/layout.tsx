@@ -1,16 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Outfit } from "next/font/google";
 import "./globals.css";
-import { HeroUIProvider } from "@heroui/react";
 import Providers from "@/app/providers";
+import GlobalAccessMenu from "@/components/global/globalAccessMenu";
 
-const geistSans = Geist({
+const outfit = Outfit({
   variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
   subsets: ["latin"],
 });
 
@@ -21,17 +16,20 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="es">
+    <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${outfit.variable} antialiased`}
       >
         <Providers>
           {children}
-        </Providers>
+          <div className="fixed top-[calc(5%-12px)] right-2 -mt-4">
+          <GlobalAccessMenu />
+          </div>
+          </Providers>
       </body>
     </html>
   );

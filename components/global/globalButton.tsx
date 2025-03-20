@@ -1,4 +1,4 @@
-import { Button } from "@heroui/button";
+import { Button } from "@heroui/react";
 
 interface GlobalButtonProps {
   onPress?: () => void;
@@ -6,16 +6,19 @@ interface GlobalButtonProps {
   isDisabled?: boolean;
   isLoading?: boolean;
   size?: "sm" | "md" | "lg";
-  color?: "primary" | "secondary" | "success" | "warning" | "danger";
+  color?: "default"|"primary" | "secondary" | "success" | "warning" | "danger";
   variant?: "solid" | "bordered" | "light" | "flat" | "ghost";
   startContent?: React.ReactNode;
   endContent?: React.ReactNode;
   isIconOnly?: boolean;
+  type?: "submit" | "button" | "reset";
+  children?: React.ReactNode;
+  onClick?: () => void; // Añadimos onClick como prop opcional
 }
 
 const GlobalButton = ({
   onPress,
-  text = "Hola",
+  text,
   isDisabled = false,
   isLoading = false,
   size = "lg",
@@ -24,9 +27,13 @@ const GlobalButton = ({
   startContent = "",
   endContent = "",
   isIconOnly = false,
+  type = "button",
+  children,
+  onClick,
 }: GlobalButtonProps) => {
   return (
     <Button
+      type={type}
       isDisabled={isDisabled}
       size={size}
       radius="lg"
@@ -37,8 +44,9 @@ const GlobalButton = ({
       startContent={startContent}
       isIconOnly={isIconOnly}
       onPress={onPress}
+      onClick={onClick}
     >
-      {text}
+      {children || text}
     </Button>
   );
 };

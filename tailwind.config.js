@@ -6,9 +6,7 @@ module.exports = {
     "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}",
     "./app/**/*.{jsx,tsx}"
   ],
-  theme: {
-    extend: {},
-  },
+  theme: {},
   darkMode: "class",
   plugins: [heroui()],
 };
