@@ -7,7 +7,6 @@ export default function Footer() {
       style={{ backgroundColor: "#2c4d71" }}
       className="text-white py-8 px-6"
     >
-
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-8">
         <div className="flex-1">
           <div className="flex items-center gap-3 mb-4">
@@ -25,15 +24,16 @@ export default function Footer() {
           </div>
 
           <p className="text-blue-100 text-sm mb-3">
-            La Universidad Nacional Autónoma de México es una institución
-            pública dedicada a la educación, investigación y difusión de la
-            cultura.
+            Nuestra Gran Universidad Nacional Autónoma de México es una
+            institución pública dedicada a la educación, investigación y
+            difusión de la cultura.
           </p>
-
-          <div className="text-xs text-blue-200">
+          <div className="text-xs text-blue-200 space-y-2">
             <p>© 2025 Universidad Nacional Autónoma de México.</p>
-            <p>Todos los derechos reservados.</p>
-            <p className="mt-2">La Universidad de la Nación</p>
+            <p className="mt-2">Nuestra Gran Universidad </p>
+            <p className="font-bold">
+              Producto realizado con el apoyo del programa PAPIME PE405625
+            </p>
           </div>
         </div>
 
