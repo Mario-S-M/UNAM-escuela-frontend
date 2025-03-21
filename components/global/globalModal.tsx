@@ -22,12 +22,10 @@ export const GlobalModal = ({
       backdrop="blur"
     >
       <ModalContent>
-        {(onClose) => (
           <>
             <ModalHeader className="flex flex-col gap-1">{title}</ModalHeader>
             <ModalBody>{children}</ModalBody>
           </>
-        )}
       </ModalContent>
     </Modal>
   );

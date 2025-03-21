@@ -1,5 +1,4 @@
 "use client";
-import GlobalButton from "@/components/global/globalButton";
 import GlobalInput from "@/components/global/globalInput";
 import GlobalToast from "@/components/global/globalToast";
 import Link from "next/link";

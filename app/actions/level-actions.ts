@@ -55,7 +55,7 @@ export async function getLevel(id: string): Promise<ActionResponse<Level>> {
 
 export async function createLevel(
   formData: FormData
-): Promise<ActionResponse<any>> {
+): Promise<ActionResponse<Level>> {
   try {
     const rawData = {
       name: formData.get("name")?.toString() || "",

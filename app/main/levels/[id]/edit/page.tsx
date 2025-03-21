@@ -7,11 +7,15 @@ import GlobalTextArea from "@/components/global/globalTextArea";
 import GlobalButton from "@/components/global/globalButton";
 import { Card, CardBody, CardHeader } from "@heroui/react";
 
-function LevelsEditPage({ params }: { params: { id: string } }) {
-  const unwrappedParams = React.use(
-    params as unknown as Promise<{ id: string }>
-  );
-  const { id } = unwrappedParams;
+interface PageProps {
+  params: Promise<{
+    id: string;
+  }>;
+}
+
+export default function LevelsEditPage({ params }: PageProps) {
+  const resolvedParams = React.use(params);
+  const { id } = resolvedParams;
 
   const {
     data: level,
@@ -27,7 +31,7 @@ function LevelsEditPage({ params }: { params: { id: string } }) {
   if (!level) return <div>Intenta con otro Dato</div>;
 
   return (
-    <div className="flex justify-center items-cente w-full p-4">
+    <div className="flex justify-center items-center w-full p-4">
       <Card className="w-full max-w-md border-3 border-current border-opacity-35 rounded-lg p-4">
         <CardHeader className="flex justify-between items-center">
           <h2 className="w-full text-center text-2xl bg-primary-600 text-content1 rounded-md">
@@ -55,5 +59,3 @@ function LevelsEditPage({ params }: { params: { id: string } }) {
     </div>
   );
 }
-
-export default LevelsEditPage;

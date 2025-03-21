@@ -1,5 +1,5 @@
 
-import LevelList from "@/app/components/global/levels/level-list"
+import LevelList from "@/app/components/levels/level-list"
 
 function LevelsPage() {
   return (

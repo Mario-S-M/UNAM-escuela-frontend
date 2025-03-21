@@ -3,6 +3,7 @@ import { Outfit } from "next/font/google";
 import "./globals.css";
 import Providers from "@/app/providers";
 import GlobalAccessMenu from "@/components/global/globalAccessMenu";
+import Footer from "@/components/global/globalFooter";
 
 const outfit = Outfit({
   variable: "--font-geist-sans",
@@ -26,9 +27,10 @@ export default function RootLayout({
       >
         <Providers>
           {children}
-          <div className="fixed top-[calc(5%-12px)] right-2 -mt-4">
+          <div className="fixed top-[calc(10%-5px)] right-2 -mt-4">
           <GlobalAccessMenu />
           </div>
+          <Footer />
           </Providers>
       </body>
     </html>
