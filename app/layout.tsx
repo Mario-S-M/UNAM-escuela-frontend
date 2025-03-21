@@ -30,7 +30,7 @@ export default function RootLayout({
           <div className="fixed top-[calc(10%-5px)] right-2 -mt-4">
           <GlobalAccessMenu />
           </div>
-          <Footer />
+        <Footer />
           </Providers>
       </body>
     </html>
