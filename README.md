@@ -40,4 +40,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 `docker build -t unam-inclusion-nextjs-front .`
 
-`docker container run -dp 3001:30001 unam-inclusion-nextjs-front`
+`docker container run -dp 3001:3001 unam-inclusion-nextjs-front`

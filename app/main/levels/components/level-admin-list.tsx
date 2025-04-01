@@ -5,10 +5,12 @@ import { Card, CardBody, Skeleton } from "@heroui/react";
 import GlobalButton from "@/components/global/globalButton";
 import { Pencil, Trash2 } from "lucide-react";
 import Link from "next/link";
+// import { useRouter } from "next/navigation";
 
-export default function LevelList() {
+export default function AdminLevelList() {
+  // const router = useRouter();
   const {
-    data: levels, 
+    data: levels,
     error,
     isLoading,
   } = useQuery({
@@ -16,7 +18,7 @@ export default function LevelList() {
     queryFn: getAllLevels,
   });
 
-  if (error) return <div>Error: {(error as Error).message}</div>;
+  if (error) return <div>Error: {error.message}</div>;
   if (isLoading)
     return (
       <>
@@ -38,11 +40,11 @@ export default function LevelList() {
       {levels?.data.map((level) => (
         <Card
           key={level.id}
-          className="w-full max-w-sm border-3 border-black rounded-lg p-4"
+          className="w-full max-w-sm border-gray-400 border-3 rounded-lg p-4 bg-transparent"
         >
           <CardBody className="gap-4 relative">
             <div className="space-y-2">
-              <h2 className="text-3xl font-bold text-default-900">
+              <h2 className="text-3xl text-black dark:text-white font-bold">
                 {level.name}
               </h2>
               <p className="text-sm text-default-500">{level.description}</p>

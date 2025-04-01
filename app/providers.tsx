@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ApolloProvider } from "@apollo/client";
 import { client } from "@/lib/apollo-client";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { ThemeProvider as NextThemesProvider } from "next-themes";
 
 export default function Providers({ children }: { children: ReactNode }) {
   const [queryClient] = useState(() => new QueryClient());
@@ -15,8 +16,10 @@ export default function Providers({ children }: { children: ReactNode }) {
       <ReactQueryDevtools initialIsOpen={false} />
       <ApolloProvider client={client}>
         <HeroUIProvider>
-          <ToastProvider />
-          {children}
+          <NextThemesProvider attribute="class" defaultTheme="unam-light-theme">
+            <ToastProvider />
+            {children}
+          </NextThemesProvider>
         </HeroUIProvider>
       </ApolloProvider>
     </QueryClientProvider>

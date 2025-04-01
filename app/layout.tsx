@@ -21,13 +21,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es">
+    <html lang="es" suppressHydrationWarning>
       <body
-        className={`${outfit.variable} antialiased`}
+        className={`${outfit.variable} antialiased unam-light-theme`}
       >
         <Providers>
           {children}
-          <div className="fixed top-[calc(10%-5px)] right-2 -mt-4">
+          <div className="fixed top-[calc(45%-5px)] right-2 -mt-4">
           <GlobalAccessMenu />
           </div>
         <Footer />

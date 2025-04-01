@@ -6,9 +6,6 @@ export const GET_LEVELS = gql`
       id
       name
       description
-      isCompleted
-      percentaje
-      qualification
     }
   }
 `;

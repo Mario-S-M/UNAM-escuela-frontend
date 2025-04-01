@@ -1,3 +1,7 @@
+"use client";
+import { Button } from "@heroui/react";
+import Link from "next/link";
+
 const HomePage = () => {
   return (
     <>
@@ -9,9 +13,9 @@ const HomePage = () => {
           Este sitio web es totalmente accesible
         </p>
         <div className="flex gap-3 md:gap-4">
-          <button className="px-3 py-2 md:px-4 md:py-2 border border-gray-300 rounded hover:bg-gray-100 transition-colors text-sm md:text-base touch-manipulation">
-            Más información
-          </button>
+          <Button>
+            <Link href='/main/levels'>Main Page</Link>
+          </Button>
         </div>
       </div>
     </>

@@ -1,10 +1,11 @@
+"use server";
 import { client } from "@/lib/apollo-client";
 import { CREATE_LEVEL, DELETE_LEVEL, GET_LEVEL, GET_LEVELS } from "../queries";
 import {
   levelFormSchema,
   levelResponseSchema,
   levelsResponseSchema,
-} from "../schemas/level.schema";
+} from "../schemas/level-schema";
 import {
   ActionResponse,
   Level,
@@ -18,7 +19,8 @@ export async function getAllLevels(): Promise<LevelsResponse> {
     const { data } = await client.query<LevelsQueryResponse>({
       query: GET_LEVELS,
       fetchPolicy: "network-only",
-    });    const validated = levelsResponseSchema.safeParse({ data: data.levels });
+    });
+    const validated = levelsResponseSchema.safeParse({ data: data.levels });
     if (!validated.success) {
       throw new Error("Formato de respuesta inválido del servidor");
     }

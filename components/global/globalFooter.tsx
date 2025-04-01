@@ -1,27 +1,14 @@
-import Image from "next/image";
 import { Facebook, Twitter, Instagram } from "lucide-react";
+import GlobalLogoUNAM from "./globalLogoUNAM";
 
 export default function Footer() {
   return (
     <footer
-      style={{ backgroundColor: "#2c4d71" }}
-      className="text-white py-8 px-6"
+      className="text-white py-8 px-6 bg-primary"
     >
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-8">
         <div className="flex-1">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="bg-white p-2 rounded-full">
-              <Image
-                src="/Logo-UNAM.svg"
-                alt="Logo UNAM"
-                width={32}
-                height={32}
-                className="rounded-full"
-                priority
-              />
-            </div>
-            <h3 className="text-lg font-bold">UNAM</h3>
-          </div>
+          <GlobalLogoUNAM />
 
           <p className="text-blue-100 text-sm mb-3">
             Nuestra Gran Universidad Nacional Autónoma de México es una
