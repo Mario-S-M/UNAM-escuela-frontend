@@ -19,14 +19,13 @@ import { User } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import { getAllLevels } from "@/app/actions";
-import { data } from "framer-motion/client";
 
 function GlobalNavbar() {
   const router = useRouter();
   const {
     data: levels,
-    error,
-    isLoading,
+    // error,
+    // isLoading,
   } = useQuery({
     queryKey: ["levels"],
     queryFn: getAllLevels,

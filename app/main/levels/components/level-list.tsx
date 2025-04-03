@@ -1,7 +1,7 @@
 "use client";
 import { getAllLevels } from "@/app/actions";
 import { useQuery } from "@tanstack/react-query";
-import { Button, Card, CardBody, Skeleton } from "@heroui/react";
+import { Button, Card, CardBody } from "@heroui/react";
 import { useRouter } from "next/navigation";
 
 export default function LevelList() {
