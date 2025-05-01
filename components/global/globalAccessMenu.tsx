@@ -1,4 +1,5 @@
 "use client";
+
 import {
   Popover,
   PopoverTrigger,
@@ -8,6 +9,10 @@ import {
 import { PersonStanding } from "lucide-react";
 import { ToogleTheme } from "../ui/toggle-Theme";
 import FontSizeChanger from "../ui/toggle-Font";
+import { LetterSpacingToggle } from "../ui/letter-Spacing-Toggle";
+import { HideImagesToggle } from "../ui/toggle-Images";
+import { DyslexiaFontToggle } from "../ui/dyslexia-Font-Toggle";
+import { LineSpacingToggle } from "../ui/line-Spacing-Toggle";
 
 export default function GlobalAccessMenu() {
   return (
@@ -21,6 +26,10 @@ export default function GlobalAccessMenu() {
         <div className="grid grid-cols-3 gap-2 px-1 py-2">
           <ToogleTheme />
           <FontSizeChanger />
+          <LetterSpacingToggle />
+          <HideImagesToggle />
+          <DyslexiaFontToggle />
+          <LineSpacingToggle />
         </div>
       </PopoverContent>
     </Popover>

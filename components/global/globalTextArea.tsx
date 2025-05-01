@@ -15,7 +15,7 @@ const GlobalTextArea = React.forwardRef<
       {...props}
       isInvalid={!!errorMessage}
       errorMessage={errorMessage}
-      className={`w-full ${className || ""}`}
+      className={`w-full ${className || ""} text-black dark:text-white`}
       variant="bordered"
     />
   );

@@ -6,7 +6,7 @@ interface LayoutProps {
 
 export default function LevelLayout({ children }: LayoutProps) {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col mt-4">
       <header
         className="p-2"
       >

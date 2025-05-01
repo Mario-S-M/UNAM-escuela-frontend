@@ -19,113 +19,126 @@ import { User } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import { getAllLevels } from "@/app/actions";
+import { useState } from "react";
 
 function GlobalNavbar() {
   const router = useRouter();
-  const {
-    data: levels,
-    // error,
-    // isLoading,
-  } = useQuery({
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const { data: levels } = useQuery({
     queryKey: ["levels"],
     queryFn: getAllLevels,
   });
-  console.log(levels);
   const menuItems = levels?.data.map((level) => level.name).sort() || [];
+
   return (
-    <>
-      <Navbar isBordered disableAnimation className="bg-primary text-white">
-        <NavbarContent className="sm:hidden" justify="start">
-          <NavbarMenuToggle />
-        </NavbarContent>
+    <Navbar
+      isBordered
+      disableAnimation
+      className="bg-primary text-white"
+      onMenuOpenChange={setIsMenuOpen}
+    >
+      {/* Toggle para pantallas pequeñas */}
+      <NavbarContent className="sm:hidden" justify="start">
+        <NavbarMenuToggle
+          aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
+          className="text-white"
+        />
+      </NavbarContent>
 
-        <NavbarContent className="sm:hidden pr-3" justify="center">
-          <NavbarBrand>
-            <GlobalLogoUNAM />
-          </NavbarBrand>
-        </NavbarContent>
+      {/* Logo centrado en pantallas pequeñas, alineado a la izquierda en pantallas grandes */}
+      <NavbarContent className="sm:flex" justify="center">
+        <NavbarBrand className="flex justify-center sm:justify-start">
+          <GlobalLogoUNAM />
+        </NavbarBrand>
+      </NavbarContent>
 
-        <NavbarContent className="sm:flex gap-4" justify="center">
-          {menuItems.map((item, index) => (
-            <NavbarItem key={`nav-${index}`}>
-              <Link href="#" className="text-background">
-                {item}
-              </Link>
-            </NavbarItem>
-          ))}
-        </NavbarContent>
+      {/* Menú de navegación: oculto en pantallas pequeñas, visible en sm y mayores */}
+      <NavbarContent className="hidden sm:flex gap-6" justify="center">
+        {menuItems.map((item, index) => (
+          <NavbarItem key={`nav-${index}`}>
+            <Link
+              href="#"
+              className="transition-colors text-base font-medium text-black dark:text-white"
+            >
+              {item}
+            </Link>
+          </NavbarItem>
+        ))}
+      </NavbarContent>
 
-        <NavbarContent as="div" justify="end">
-          <Dropdown placement="bottom-end">
-            <DropdownTrigger>
-              <Avatar
-                isBordered
-                as="button"
-                className="transition-transform"
-                color="default"
-                fallback={<User />}
-                size="sm"
-              />
-            </DropdownTrigger>
-            <DropdownMenu aria-label="Profile Actions" variant="flat" disabledKeys={["profile"]}>
-              <DropdownItem
-                key="profile"
-                color="primary"
-                className="gap-2"
-                classNames={{
-                  title: "text-black",
-                  base: "text-black",
-                }}
-              >
-                <p className="font-semibold">Hola: </p>
-              </DropdownItem>
-              <DropdownItem
-                key="settings"
-                classNames={{
-                  title: "text-black",
-                  base: "text-black",
-                }}
-              >
-                Opciones de Administrador
-              </DropdownItem>
-                <DropdownItem
-                  key="team_settings"
-                  classNames={{
-                    title: "text-black",
-                    base: "text-black",
-                  }}
-                  onPress={() => router.replace("/auth/login")}
-                >
-                  Iniciar Sesión
-                </DropdownItem>
-              <DropdownItem
-                key="logout"
-                color="danger"
-                classNames={{
-                  base: "text-black",
-                }}
-              >
-                Cerrar Sesión
-              </DropdownItem>
-            </DropdownMenu>
-          </Dropdown>
-        </NavbarContent>
+      {/* Avatar y dropdown */}
+      <NavbarContent as="div" justify="end">
+        <Dropdown placement="bottom-end">
+          <DropdownTrigger>
+            <Avatar
+              isBordered
+              as="button"
+              className="transition-transform w-10 h-10 sm:w-12 sm:h-12"
+              color="default"
+              fallback={<User className="w-5 h-5 sm:w-6 sm:h-6" />}
+              size="sm"
+            />
+          </DropdownTrigger>
+          <DropdownMenu aria-label="Profile Actions" variant="flat" disabledKeys={["profile"]}>
+            <DropdownItem
+              key="profile"
+              color="primary"
+              className="gap-2"
+              classNames={{
+                title: "text-black dark:text-white",
+                base: "text-black dark:text-white",
+              }}
+            >
+              <p className="font-semibold">Hola:</p>
+            </DropdownItem>
+            <DropdownItem
+              key="settings"
+              classNames={{
+                title: "text-black dark:text-white",
+                base: "text-black dark:text-white",
+              }}
+            >
+              Opciones de Administrador
+            </DropdownItem>
+            <DropdownItem
+              key="team_settings"
+              classNames={{
+                title: "text-black dark:text-white",
+                base: "text-black dark:text-white",
+              }}
+              onPress={() => router.replace("/auth/login")}
+            >
+              Iniciar Sesión
+            </DropdownItem>
+            <DropdownItem
+              key="logout"
+              color="danger"
+              classNames={{
+                base: "text-black dark:text-white",
+              }}
+            >
+              Cerrar Sesión
+            </DropdownItem>
+          </DropdownMenu>
+        </Dropdown>
+      </NavbarContent>
 
-        <NavbarMenu>
-          {menuItems.map((item, index) => (
-            <NavbarMenuItem key={`${item}-${index}`}>
-              <Link
-                className="w-full"
-                href="#"
-                size="lg"
-              >
-                {item}
-              </Link>
-            </NavbarMenuItem>
-          ))}
-        </NavbarMenu>
-      </Navbar>
-    </>
+      {/* Menú móvil para pantallas pequeñas */}
+      <NavbarMenu className="bg-primary/95 backdrop-blur-sm py-4">
+        {menuItems.map((item, index) => (
+          <NavbarMenuItem key={`${item}-${index}`}>
+            <Link
+              className="w-full text-black dark:text-white hover:text-gray-200 transition-colors text-lg"
+              href="#"
+              size="lg"
+            >
+              {item}
+            </Link>
+          </NavbarMenuItem>
+        ))}
+      </NavbarMenu>
+    </Navbar>
   );
 }
 

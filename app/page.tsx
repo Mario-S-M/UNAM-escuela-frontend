@@ -13,9 +13,11 @@ const HomePage = () => {
           Este sitio web es totalmente accesible
         </p>
         <div className="flex gap-3 md:gap-4">
+        <Link href='/main/levels'>
           <Button>
-            <Link href='/main/levels'>Main Page</Link>
+            Main Page
           </Button>
+          </Link>
         </div>
       </div>
     </>

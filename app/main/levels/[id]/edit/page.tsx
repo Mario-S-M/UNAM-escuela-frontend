@@ -32,7 +32,7 @@ export default function LevelsEditPage({ params }: PageProps) {
 
   return (
     <div className="flex justify-center items-center w-full p-4">
-      <Card className="w-full max-w-md border-3 border-current border-opacity-35 rounded-lg p-4">
+      <Card className="w-full max-w-md border-3 border-current border-opacity-35 rounded-lg p-4 bg-transparent">
         <CardHeader className="flex justify-between items-center">
           <h2 className="w-full text-center text-2xl bg-primary-600 text-content1 rounded-md">
             Editar Nivel
